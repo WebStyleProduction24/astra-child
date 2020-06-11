@@ -90,7 +90,7 @@ function real_estate_objects() {
 	endwhile; endif;
 
 	echo "</ul>";
-	
+
 	return ob_get_clean();
 }
 
@@ -99,6 +99,3 @@ function real_estate_objects_shortcode(){
 	return real_estate_objects();
 }
 add_shortcode('real-estate-objects', 'real_estate_objects_shortcode');
-
-// результат: 
-// шоткод [footag foo="bar"] в тексте будет заменен на "foo = bar"
