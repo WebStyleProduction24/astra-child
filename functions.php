@@ -30,7 +30,7 @@ function create_taxonomy(){
 	] );
 }
 
-	
+
 /* Регистрация произвольного типа записи kodex */
 
 add_action('init', 'new_post_register');
@@ -60,3 +60,19 @@ function new_post_register()
 	);
 	register_post_type('real_estate',$args);
 }
+
+//Регистрируем sidebar
+
+add_action( 'widgets_init', 'real_estate_widgets' );
+function real_estate_widgets(){
+	register_sidebar( array(
+		'name'          => 'Сайдбар объекта недвижимости',
+		'id'            => "sidebar-real_estate",
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+}
+
