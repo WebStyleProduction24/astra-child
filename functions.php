@@ -76,3 +76,29 @@ function real_estate_widgets(){
 	) );
 }
 
+function real_estate_objects() {
+	ob_start();
+	$reviews = new WP_Query(array(
+		'post_type' => 'real_estate',
+		'posts_per_page' => -1
+	));
+
+	echo "<ul>";
+
+	if ( $reviews->have_posts() ) : while ( $reviews->have_posts() ) : $reviews->the_post();
+		echo "<li class='cat-item'><a href=" . get_the_permalink() . ">" .get_the_title() . "</a></li>";
+	endwhile; endif;
+
+	echo "</ul>";
+	
+	return ob_get_clean();
+}
+
+//Регистрируем шорткоды
+function real_estate_objects_shortcode(){
+	return real_estate_objects();
+}
+add_shortcode('real-estate-objects', 'real_estate_objects_shortcode');
+
+// результат: 
+// шоткод [footag foo="bar"] в тексте будет заменен на "foo = bar"
