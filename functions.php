@@ -111,11 +111,41 @@ function real_estate_objects() {
 
 
 function real_estate_offer() {
+
 	if (is_singular('real_estate')) {
+
+
+
+add_filter( 'astra_featured_image_markup', 'function_to_add');
+
+function function_to_add() {
+	return '';
+}
+
+
+
+
+
+		 // $output = '';
+		// $output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
+		global $post;
+
 		echo "<div class='ast-single-post-order'>";
 		echo "<h1 class='entry-title' itemprop='headline'>";
 		echo 'Лучшая подборка объектов недвижимости "Лето 2020"';
 		echo "</h1>";
 		echo "</div>";
+
+		$cur_terms = get_the_terms( $post->ID, 'real_estate_taxonomy' );
+		if( is_array( $cur_terms ) ){
+			foreach( $cur_terms as $cur_term ){
+				echo '<a href="'. get_term_link( $cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
+			}
+		}
+
+		if ( $slider = get_post_meta( $post->ID, 'slider', true ) ) :
+			echo "<div>". do_shortcode($slider). "</div>";
+		endif;
+
 	}
 }; 
