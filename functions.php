@@ -76,8 +76,23 @@ function real_estate_widgets(){
 	) );
 }
 
+
+//Регистрируем шорткоды
+function real_estate_objects_shortcode(){
+	return real_estate_objects();
+}
+add_shortcode('real-estate-objects', 'real_estate_objects_shortcode');
+
+function posts_real_estate_objects_shortcode(){
+	return posts_real_estate_objects();
+}
+add_shortcode('posts-real-estate-objects', 'posts_real_estate_objects_shortcode');
+
+
+//Вывод объектов недвижимости
 function real_estate_objects() {
 	ob_start();
+
 	$reviews = new WP_Query(array(
 		'post_type' => 'real_estate',
 		'posts_per_page' => -1
@@ -94,8 +109,13 @@ function real_estate_objects() {
 	return ob_get_clean();
 }
 
-//Регистрируем шорткоды
-function real_estate_objects_shortcode(){
-	return real_estate_objects();
-}
-add_shortcode('real-estate-objects', 'real_estate_objects_shortcode');
+
+function real_estate_offer() {
+	if (is_singular('real_estate')) {
+		echo "<div class='ast-single-post-order'>";
+		echo "<h1 class='entry-title' itemprop='headline'>";
+		echo 'Лучшая подборка объектов недвижимости "Лето 2020"';
+		echo "</h1>";
+		echo "</div>";
+	}
+}; 
