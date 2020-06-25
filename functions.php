@@ -109,25 +109,17 @@ function real_estate_objects() {
 	return ob_get_clean();
 }
 
-
+//Отображение Оффера на странице объекта недвижимости
 function real_estate_offer() {
 
 	if (is_singular('real_estate')) {
 
+		add_filter( 'astra_featured_image_markup', 'function_to_add');
 
+		function function_to_add() {
+			return '';
+		}
 
-add_filter( 'astra_featured_image_markup', 'function_to_add');
-
-function function_to_add() {
-	return '';
-}
-
-
-
-
-
-		 // $output = '';
-		// $output = apply_filters( 'astra_get_post_thumbnail', $output, $before, $after );
 		global $post;
 
 		echo "<div class='ast-single-post-order'>";
