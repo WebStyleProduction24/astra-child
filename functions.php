@@ -1,5 +1,19 @@
 <?php
 
+
+
+// регистрируем стили
+add_action( 'wp_enqueue_scripts', 'register_astra_child_styles' );
+
+// регистрируем файл стилей и добавляем его в очередь
+function register_astra_child_styles() {
+	wp_register_style( 'astra-child-css', get_stylesheet_directory_uri().'/style.css' );
+	wp_enqueue_style( 'astra-child-css' );
+}
+
+
+
+
 add_action('init', function() {
 	pll_register_string('Adress', 'Plaza Calvo Sotelo, 3, 6B, Аликанте, Испания<br>Тел: <a href="tel:34937376226">+34 937 376 226</a> <br>Почта: <a href="mailto:info@sakc.info">info@sakc.info</a>', 'Text', true);
 });
@@ -13,16 +27,16 @@ function create_taxonomy(){
 	// список параметров: wp-kama.ru/function/get_taxonomy_labels
 	register_taxonomy( 'real_estate_taxonomy', [ 'real_estate' ], [ 
 		'labels'				=> [
-			'name'          => 'Классы недвижимости',
-			'singular_name' => 'Класс недвижимости',
-			'search_items'  => 'Искать класс недвижимости',
-			'all_items'     => 'Все классы недвижимости',
-			'view_item '    => 'Посмотреть класс недвижимости',
-			'edit_item'     => 'Редактировать класс недвижимости',
-			'update_item'   => 'Обновить класс недвижимости',
-			'add_new_item'  => 'Добавить новый класс недвижимости',
-			'new_item_name'	=> 'Создать новый класс недвижимости',
-			'menu_name'         => 'Классы недвижимости',
+			'name'          => 'Типы недвижимости',
+			'singular_name' => 'Тип недвижимости',
+			'search_items'  => 'Искать тип недвижимости',
+			'all_items'     => 'Все типы недвижимости',
+			'view_item '    => 'Посмотреть тип недвижимости',
+			'edit_item'     => 'Редактировать тип недвижимости',
+			'update_item'   => 'Обновить тип недвижимости',
+			'add_new_item'  => 'Добавить новый тип недвижимости',
+			'new_item_name'	=> 'Создать новый тип недвижимости',
+			'menu_name'     => 'Типы недвижимости',
 		],
 		'description'   => 'Каталог объектов недвижимости в Испании', // описание таксономии
 		'public'        => true,
@@ -47,7 +61,7 @@ function new_post_register()
 		'all_items' 					=> 'Все объекты',
 		'view_item' 					=> 'Посмотреть объект',
 		'search_items' 				=> 'Найти объект',
-		'not_found' 					=>  'Ничего не найдено',
+		'not_found' 					=> 'Ничего не найдено',
 		'not_found_in_trash' 	=> 'В корзине ничего не найдено'
 	);
 	$args = array(
@@ -114,12 +128,6 @@ function real_estate_offer() {
 
 	if (is_singular('real_estate')) {
 
-		add_filter( 'astra_featured_image_markup', 'function_to_add');
-
-		function function_to_add() {
-			return '';
-		}
-
 		global $post;
 
 		echo "<div class='ast-single-post-order'>";
@@ -128,16 +136,73 @@ function real_estate_offer() {
 		echo "</h1>";
 		echo "</div>";
 
-		$cur_terms = get_the_terms( $post->ID, 'real_estate_taxonomy' );
-		if( is_array( $cur_terms ) ){
-			foreach( $cur_terms as $cur_term ){
-				echo '<a href="'. get_term_link( $cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a>';
-			}
+	}
+}
+
+//Отображение слайдера на странице недвижимости
+function real_estate_slider() {
+
+	if (is_singular('real_estate')) {
+
+		add_filter( 'astra_featured_image_markup', 'function_to_add');
+
+		function function_to_add() {
+			return '';
 		}
 
+		global $post;
+
 		if ( $slider = get_post_meta( $post->ID, 'slider', true ) ) :
-			echo "<div>". do_shortcode($slider). "</div>";
+			echo "<div class='mb-4'>". do_shortcode($slider). "</div>";
 		endif;
 
 	}
-}; 
+
+}
+
+//Отображение типа недвижимости на странице объекта
+function real_estate_type() {
+
+	if (is_singular('real_estate')) {
+
+		global $post;
+
+		$cur_terms = get_the_terms( $post->ID, 'real_estate_taxonomy' );
+		if( is_array( $cur_terms ) ){
+			foreach( $cur_terms as $cur_term ){
+				echo '<div class="mb-4 real-estate-type"><a href="'. get_term_link( $cur_term->term_id, $cur_term->taxonomy ) .'">'. $cur_term->name .'</a></div>';
+			}
+		}
+
+	}
+
+}
+
+
+//Добавляем дополнительный класс на странице объекта недвижимости
+function astra_primary_class( $class = '' ) {
+
+	if (is_singular('real_estate')) $class_astra_child = 'astra-child ';
+	else $class_astra_child = '';
+
+		// Separates classes with a single space, collates classes for body element.
+	echo 'class="' . $class_astra_child . esc_attr( join( ' ', astra_get_primary_class( $class ) ) ) . '"';
+}
+
+
+//Выводим кастомные поля на странице объекта недвижимости
+function custom_fields() {
+	
+	global $post;
+	$string = '';
+
+	if ( $type = get_post_meta( $post->ID, 'type', true ) ) $string .= "<div>Тип - ". do_shortcode($type). "</div>";
+	if ( $squear = get_post_meta( $post->ID, 'squear', true ) ) $string .= "<div>Площадь - ". do_shortcode($squear). "</div>";
+	if ( $rooms = get_post_meta( $post->ID, 'rooms', true ) ) $string .= "<div>". do_shortcode($rooms). "</div>";
+	if ( $area = get_post_meta( $post->ID, 'area', true ) ) $string .= "<div>Район - ". do_shortcode($area). "</div>";
+
+	if ( $string ) $string = "<div class='entry-content bold'><p>" . $string . "</div></p>";
+
+	echo $string;
+
+}

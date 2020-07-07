@@ -8,4 +8,26 @@ Template:       astra
 Version:        0.1.0
 */
 
-@import url("../astra/style.css");
+.mb-4 {
+	margin-bottom: 2rem;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.ast-separate-container .astra-child article {
+	padding-right: 1em;
+	padding-left: 1em;
+}
+
+.ast-separate-container .astra-child article .ast-single-post-order,
+.ast-separate-container .astra-child article .entry-content,
+.ast-separate-container .astra-child article .real-estate-type{
+	padding-right: 2em;
+	padding-left: 2em;
+}
+
+.ast-separate-container .astra-child article .entry-content {
+	text-align: justify;
+}
