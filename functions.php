@@ -197,7 +197,7 @@ function custom_fields() {
 	$string = '';
 
 	if ( $type = get_post_meta( $post->ID, 'type', true ) ) $string .= "<div>Тип - ". do_shortcode($type). "</div>";
-	if ( $squear = get_post_meta( $post->ID, 'squear', true ) ) $string .= "<div>Площадь - ". do_shortcode($squear). "</div>";
+	if ( $square = get_post_meta( $post->ID, 'square', true ) ) $string .= "<div>Площадь - ". do_shortcode($square). "</div>";
 	if ( $rooms = get_post_meta( $post->ID, 'rooms', true ) ) $string .= "<div>". do_shortcode($rooms). "</div>";
 	if ( $area = get_post_meta( $post->ID, 'area', true ) ) $string .= "<div>Район - ". do_shortcode($area). "</div>";
 
