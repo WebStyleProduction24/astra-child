@@ -27,6 +27,13 @@ Version:        0.1.0
 	padding-right: 2em;
 	padding-left: 2em;
 }
+.astra-child .ast-archive-description {
+	padding: 1em 6.67em;
+}
+.astra-child article h2{
+	padding-right: 1.75em;
+	padding-left: 1.75em;
+}
 
 .ast-separate-container .astra-child article .entry-content {
 	text-align: justify;

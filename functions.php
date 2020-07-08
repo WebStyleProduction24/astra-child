@@ -126,7 +126,7 @@ function real_estate_objects() {
 //Отображение Оффера на странице объекта недвижимости
 function real_estate_offer() {
 
-	if (is_singular('real_estate')) {
+	if (is_singular('real_estate') || is_tax()) {
 
 		global $post;
 
@@ -182,7 +182,7 @@ function real_estate_type() {
 //Добавляем дополнительный класс на странице объекта недвижимости
 function astra_primary_class( $class = '' ) {
 
-	if (is_singular('real_estate')) $class_astra_child = 'astra-child ';
+	if (is_singular('real_estate') || is_tax() ) $class_astra_child = 'astra-child ';
 	else $class_astra_child = '';
 
 		// Separates classes with a single space, collates classes for body element.
@@ -205,4 +205,28 @@ function custom_fields() {
 
 	echo $string;
 
+}
+
+//Обрезаем длину цитаты постов в таксономиях
+add_filter( 'excerpt_length', function(){
+	if ( is_tax() ) {
+		return 30;
+	}
+} );
+
+
+
+//Добавляем отображение пользовательских полей на архивах таксономии
+add_action('astra_entry_content_before', 'astra_child_entry_content_before');
+function astra_child_entry_content_before() {
+	if ( is_tax() ) {
+		custom_fields();
+	}	
+}
+
+
+//Добавляем оффер на странице архивов таксономии
+add_action('astra_before_archive_title','astra_child_before_archive_title');
+function astra_child_before_archive_title() {
+	real_estate_offer();
 }
