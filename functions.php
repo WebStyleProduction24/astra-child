@@ -14,9 +14,9 @@ function register_astra_child_styles() {
 
 
 
-add_action('init', function() {
-	pll_register_string('Adress', 'Plaza Calvo Sotelo, 3, 6B, Аликанте, Испания<br>Тел: <a href="tel:34937376226">+34 937 376 226</a> <br>Почта: <a href="mailto:info@sakc.info">info@sakc.info</a>', 'Text', true);
-});
+// add_action('init', function() {
+// 	pll_register_string('Adress', 'Plaza Calvo Sotelo, 3, 6B, Аликанте, Испания<br>Тел: <a href="tel:34937376226">+34 937 376 226</a> <br>Почта: <a href="mailto:info@sakc.info">info@sakc.info</a>', 'Text', true);
+// });
 
 
 //Создание таксономии для Недвижимости
@@ -70,7 +70,8 @@ function new_post_register()
 		'has_archive' 	=> true,
 		'menu_position' => 4,
 		'supports' 			=> array('title', 'editor', 'thumbnail', 'custom-fields'),
-		'menu_icon'			=> 'dashicons-building'
+		'menu_icon'			=> 'dashicons-building',
+		'taxonomies' 		=> array('real_estate_taxonomy')
 	);
 	register_post_type('real_estate',$args);
 }
@@ -196,6 +197,7 @@ function custom_fields() {
 	global $post;
 	$string = '';
 
+	if ( $number_object = get_post_meta( $post->ID, 'number_object', true ) ) $string .= "<div>Номер объекта: ". do_shortcode($number_object). "</div>";
 	if ( $type = get_post_meta( $post->ID, 'type', true ) ) $string .= "<div>Тип - ". do_shortcode($type). "</div>";
 	if ( $square = get_post_meta( $post->ID, 'square', true ) ) $string .= "<div>Площадь - ". do_shortcode($square). "</div>";
 	if ( $rooms = get_post_meta( $post->ID, 'rooms', true ) ) $string .= "<div>". do_shortcode($rooms). "</div>";
@@ -230,3 +232,4 @@ add_action('astra_before_archive_title','astra_child_before_archive_title');
 function astra_child_before_archive_title() {
 	real_estate_offer();
 }
+
