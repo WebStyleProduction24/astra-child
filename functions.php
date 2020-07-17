@@ -124,10 +124,10 @@ function real_estate_objects() {
 	return ob_get_clean();
 }
 
-//Отображение Оффера на странице объекта недвижимости
+//Отображение Оффера на объектах недвижимости
 function real_estate_offer() {
 
-	if (is_singular('real_estate') || is_tax()) {
+	if (is_singular('real_estate') || is_tax() || is_archive('real_estate')) {
 
 		global $post;
 
@@ -183,7 +183,7 @@ function real_estate_type() {
 //Добавляем дополнительный класс на странице объекта недвижимости
 function astra_primary_class( $class = '' ) {
 
-	if (is_singular('real_estate') || is_tax() ) $class_astra_child = 'astra-child ';
+	if (is_archive('real_estate') ||is_singular('real_estate') || is_tax() ) $class_astra_child = 'astra-child ';
 	else $class_astra_child = '';
 
 		// Separates classes with a single space, collates classes for body element.
@@ -211,7 +211,7 @@ function custom_fields() {
 
 //Обрезаем длину цитаты постов в таксономиях
 add_filter( 'excerpt_length', function(){
-	if ( is_tax() ) {
+	if ( is_tax() || is_archive('real_estate') ) {
 		return 30;
 	}
 } );
@@ -221,7 +221,7 @@ add_filter( 'excerpt_length', function(){
 //Добавляем отображение пользовательских полей на архивах таксономии
 add_action('astra_entry_content_before', 'astra_child_entry_content_before');
 function astra_child_entry_content_before() {
-	if ( is_tax() ) {
+	if ( is_tax() || is_archive('real_estate') ) {
 		custom_fields();
 	}	
 }
@@ -233,3 +233,105 @@ function astra_child_before_archive_title() {
 	real_estate_offer();
 }
 
+
+//Удаляем отображдение заголовка архива на странице архива недвижимости
+add_action( 'wp_loaded', function(){
+		remove_action( 'astra_archive_header', 'astra_archive_page_info' );
+} );
+
+
+add_action('astra_archive_header', 'astra_child_archive_page_info');
+function astra_child_archive_page_info() {
+
+
+		if ( apply_filters( 'astra_the_title_enabled', true ) ) {
+
+			// Author.
+			if ( is_author() ) { ?>
+
+				<section class="ast-author-box ast-archive-description">
+					<div class="ast-author-bio">
+						<?php do_action( 'astra_before_archive_title' ); ?>
+						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
+						<?php do_action( 'astra_after_archive_title' ); ?>
+						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
+						<?php do_action( 'astra_after_archive_description' ); ?>
+					</div>
+					<div class="ast-author-avatar">
+						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
+					</div>
+				</section>
+
+				<?php
+
+				// Category.
+			} elseif ( is_category() ) {
+				?>
+
+				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
+				</section>
+
+				<?php
+
+				// Tag.
+			} elseif ( is_tag() ) {
+				?>
+
+				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
+				</section>
+
+				<?php
+
+				// Search.
+			} elseif ( is_search() ) {
+				?>
+
+				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php
+						/* translators: 1: search string */
+						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
+					?>
+					<h1 class="page-title ast-archive-title"> <?php echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> </h1>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+				</section>
+
+				<?php
+
+				// Other.
+			} elseif ( is_archive('real_estate') && !is_tax()) {
+				?>
+
+				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
+				</section>
+
+				<?php
+			} else {
+				?>
+
+				<section class="ast-archive-description">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
+				</section>
+
+				<?php
+			}
+		}
+}
