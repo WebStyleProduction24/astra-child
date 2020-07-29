@@ -38,3 +38,80 @@ Version:        0.1.0
 .ast-separate-container .astra-child article .entry-content {
 	text-align: justify;
 }
+/* Изменение формы заявки 26.07.2020 */
+
+#popmake-1494 {
+	max-width: 602px!important; 
+	padding: 0px 0px 20px!important;
+}
+.pum-theme-1489 .pum-title, .pum-theme-enterprise-blue .pum-title {
+	color: #fff!important;
+	font-size: 17px!important;
+    line-height: 40px!important;
+    background-color: #4054b2!important;
+    padding: 5px 185px 5px 20px!important;
+	font-family: 'Work Sans',sans-serif!important;
+	
+}
+.wpforms-container .wpforms-field {
+	padding: 20px 20px!important;
+}
+.wpforms-container .wpforms-submit-container {
+	padding: 10px 20px 0px 20px!important;
+}
+.wpforms-field .wpforms-field-name {
+	padding: 10px 20px!important;
+}
+.wpforms-field .wpforms-field-number {
+	padding: 10px 20px!important;
+}
+#wpforms-1434-field_3  {
+	max-width: 100%!important;
+}
+#wpforms-1434-field_4 {
+	max-width: 100%!important;
+}
+.pum-theme-1489 .pum-content + .pum-close, .pum-theme-enterprise-blue .pum-content + .pum-close {
+	border: none!important;
+    font-weight: 900!important;
+    font-size: 40px!important;
+    line-height: 24px;
+    background-color: #4054b2!important;
+	font-family: fantasy!important;
+}
+/* Изменение footer 25.07.2020 */
+.footer__icons-links {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	height: 100%;
+}
+.footer__icon-link {
+	margin: 0 5px;
+	max-width: 28px;
+}
+
+/* Изменение footer 18.07.2020 */
+.footer-copyright {
+	
+}
+.footer-copyright-item {
+	padding-top: 3%;
+}
+@media (min-width: 769px) {
+.ast-footer-overlay {
+	padding-top: 0.1em!important;
+    padding-bottom: 0.1em!important;
+	}
+}
+/* Изменение header 22.07.2020 */
+@media (max-width: 1218px) {
+header .site-logo-img .custom-logo-link img {
+    max-width: 168px!important;
+	}
+}
+@media (max-width: 1150px) {
+.header-main-layout-1 .ast-main-header-bar-alignment {
+    margin-left: 0!important;
+	}
+}

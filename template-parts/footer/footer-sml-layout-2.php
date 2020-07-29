@@ -20,13 +20,11 @@ if ( '' != $section_1 ) {
 if ( '' != $section_2 ) {
 	$sections++;
 }
-
 switch ( $sections ) {
 
 	case '2':
-			$section_class = 'ast-small-footer-section-equally ast-col-md-6 ast-col-xs-12';
+			$section_class = 'ast-small-footer-section-equally ast-col-md-4 ast-col-xs-12';
 		break;
-
 	case '1':
 	default:
 			$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
@@ -44,18 +42,27 @@ switch ( $sections ) {
 					<?php if ( $section_1 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
-								pll_e('Plaza Calvo Sotelo, 3, 6B, Аликанте, Испания<br>Тел: <a href="tel:34937376226">+34 937 376 226</a> Почта: <a href="mailto:info@sakc.info">info@sakc.info</a>');
+								echo $section_1 // WPCS: XSS OK.
 							?>
 						</div>
 				<?php endif; ?>
 
-					<?php if ( $section_2 ) : ?>
-						<div class="ast-small-footer-section ast-small-footer-section-2 <?php echo esc_attr( $section_class ); ?>" >
-							<?php
-								echo $section_2; // WPCS: XSS OK.
-							?>
+					
+						<div class="ast-small-footer-section  <?php echo esc_attr( $section_class ); ?>" >
+							<div class="footer__icons-links">
+								<div class="footer__icon-link"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></div>
+								<div class="footer__icon-link"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></div>
+							</div>
+						</div>
+						
+						<?php if ( $section_2) : ?>
+						<div class="ast-small-footer-section ast-small-footer-section-2 footer-copyright <?php echo esc_attr( $section_class ); ?>" >
+							<div class="footer-copyright">
+								<div class="footer-copyright-item">Copyright © 2020 SENSACION SAKC</div>
+							</div>
 						</div>
 				<?php endif; ?>
+						
 
 					</div> <!-- .ast-row.ast-flex -->
 			</div><!-- .ast-small-footer-wrap -->
