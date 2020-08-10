@@ -98,10 +98,55 @@ Version:        0.1.0
 .footer-copyright-item {
 	padding-top: 3%;
 }
+/* Изменение услуги- покупка 05.08.2020 */
+@media (max-width: 1155px) {
+.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+	padding: 5px 6px!important;
+    font-size: 10px!important;
+	}
+.ast-custom-html > button .main-navigation {
+	font-size: 16px!important;
+	}
+}
+@media (max-width: 1220px) {
+	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+	padding: 4px 5px!important;
+    font-size: 11px!important;
+	}
+}
+@media (max-width: 920px) {
+	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+    padding: 2px 5px !important;
+    font-size: 12px!important;
+	}
+	.ast-button-wrap .menu-toggle .menu-toggle-icon:before {
+      font-size: 30px;
+	}
+}
+@media (max-width: 1140px) {
+	.ast-logo-title-inline .site-logo-img {
+   		 padding-right: 0!important;
+	}
+}
+@media (max-width: 1150px) {
+	.main-header-menu a {
+    padding: 0px 10px;
+    font-size: 14px;
+	}
+}
+
+
 @media (min-width: 769px) {
 .ast-footer-overlay {
 	padding-top: 0.1em!important;
     padding-bottom: 0.1em!important;
+	}
+}
+/* Изменение header 06.08.2020 */
+@media (max-width: 920px) {
+.ast-button-wrap .menu-toggle {
+	align-items: center;
+    display: flex;
 	}
 }
 /* Изменение header 22.07.2020 */

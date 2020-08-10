@@ -50,8 +50,8 @@ switch ( $sections ) {
 					
 						<div class="ast-small-footer-section  <?php echo esc_attr( $section_class ); ?>" >
 							<div class="footer__icons-links">
-								<div class="footer__icon-link"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></div>
-								<div class="footer__icon-link"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></div>
+								<div class="footer__icon-link"><a href="https://wa.me/+34660520536" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></a></div>
+								<div class="footer__icon-link"> <a href="https://telegram.me/PBIgroup_bot" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></a></div>
 							</div>
 						</div>
 						
