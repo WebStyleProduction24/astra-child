@@ -23,12 +23,12 @@ if ( '' != $section_2 ) {
 switch ( $sections ) {
 
 	case '2':
-			$section_class = 'ast-small-footer-section-equally ast-col-md-4 ast-col-xs-12';
-		break;
+	$section_class = 'ast-small-footer-section-equally ast-col-md-4 ast-col-xs-12';
+	break;
 	case '1':
 	default:
-			$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
-		break;
+	$section_class = 'ast-small-footer-section-equally ast-col-xs-12';
+	break;
 }
 
 ?>
@@ -37,35 +37,27 @@ switch ( $sections ) {
 	<div class="ast-footer-overlay">
 		<div class="ast-container">
 			<div class="ast-small-footer-wrap" >
-					<div class="ast-row ast-flex">
+				<div class="ast-row ast-flex">
 
 					<?php if ( $section_1 ) : ?>
 						<div class="ast-small-footer-section ast-small-footer-section-1 <?php echo esc_attr( $section_class ); ?>" >
 							<?php
 								echo $section_1 // WPCS: XSS OK.
-							?>
-						</div>
-				<?php endif; ?>
-
-					
-						<div class="ast-small-footer-section  <?php echo esc_attr( $section_class ); ?>" >
-							<div class="footer__icons-links">
-								<div class="footer__icon-link"><a href="https://wa.me/+34660520536" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></a></div>
-								<div class="footer__icon-link"> <a href="https://telegram.me/PBIgroup_bot" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></a></div>
+								?>
 							</div>
-						</div>
+						<?php endif; ?>
 						
 						<?php if ( $section_2) : ?>
-						<div class="ast-small-footer-section ast-small-footer-section-2 footer-copyright <?php echo esc_attr( $section_class ); ?>" >
-							<div class="footer-copyright">
-								<div class="footer-copyright-item">Copyright © 2020 SENSACION SAKC</div>
+							<div class="ast-small-footer-section ast-small-footer-section-2 footer-copyright <?php echo esc_attr( $section_class ); ?>" >
+								<div class="footer-copyright">
+									<div class="footer-copyright-item">Copyright © 2020 SENSACION SAKC</div>
+								</div>
 							</div>
-						</div>
-				<?php endif; ?>
+						<?php endif; ?>
 						
 
 					</div> <!-- .ast-row.ast-flex -->
-			</div><!-- .ast-small-footer-wrap -->
-		</div><!-- .ast-container -->
-	</div><!-- .ast-footer-overlay -->
-</div><!-- .ast-small-footer-->
+				</div><!-- .ast-small-footer-wrap -->
+			</div><!-- .ast-container -->
+		</div><!-- .ast-footer-overlay -->
+	</div><!-- .ast-small-footer-->
