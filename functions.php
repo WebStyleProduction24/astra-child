@@ -342,6 +342,7 @@ function astra_child_archive_page_info() {
 
 add_action( 'astra_masthead_content', 'messengers_wsp24', 9 );
 function messengers_wsp24() {
+	$string = '<div class="footer__icons-links-items">';
 	$string = '<div class="footer__icons-links">';
 	$string .= '<div class="footer__icon-link"><a href="https://wa.me/+34660520536" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></a></div>';
 	$string .= '<div class="footer__icon-link"> <a href="https://telegram.me/PBIgroup_bot" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></a></div>';

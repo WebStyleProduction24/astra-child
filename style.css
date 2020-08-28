@@ -79,6 +79,16 @@ Version:        0.1.0
     background-color: #4054b2!important;
 	font-family: fantasy!important;
 }
+/* Изменение footer 10.08.2020 */
+.footer__icons-links-ft {
+	display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: 15px 5px;
+}
+.footer__icon-link-ft img {
+	max-width: 41px;
+}
 /* Изменение footer 25.07.2020 */
 .footer__icons-links {
 	display: flex;
@@ -97,6 +107,13 @@ Version:        0.1.0
 }
 .footer-copyright-item {
 	padding-top: 3%;
+}
+.header-main-layout-1 .main-navigation {
+	padding-left: 0px;
+    vertical-align: top;
+}
+header .site-logo-img .custom-logo-link img {
+    max-width: 230px;
 }
 /* Изменение услуги- покупка 05.08.2020 */
 @media (max-width: 1155px) {
@@ -150,13 +167,63 @@ Version:        0.1.0
 	}
 }
 /* Изменение header 22.07.2020 */
-@media (max-width: 1218px) {
+@media (max-width: 1296px) {
 header .site-logo-img .custom-logo-link img {
-    max-width: 168px!important;
+    max-width: 147px;
+	}
+	.main-header-menu a {
+    padding: 0 11px;
+	font-size: 14px;
+	}
+	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+	font-size: 11px;
+	}
+	#masthead .ast-container, .ast-header-breadcrumb .ast-container {
+    padding: 0 8px;
+	}
+
+}
+@media (max-width: 965px) {
+header .site-logo-img .custom-logo-link img {
+    max-width: 103px!important;
+	}
+	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+	font-size: 8px;
 	}
 }
+
 @media (max-width: 1150px) {
 .header-main-layout-1 .ast-main-header-bar-alignment {
     margin-left: 0!important;
 	}
+}
+@media (max-width: 768px) {
+	.footer__icons-links {
+	display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 100%;
+    left: 0;
+    position: relative;
+	}
+	.ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
+    display: flex;
+    flex: 0!important;
+	}
+	.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container {
+	display: flex;	
+    justify-content: space-between;
+	}
+	.ast-header-break-point .ast-mobile-menu-buttons {
+        margin-left: 18%!important;
+		flex: 1!important;
+	}
+	.ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img {
+    max-width: 125px;
+	}
+	.ast-button-wrap .menu-toggle .menu-toggle-icon {
+		color: #46237a!important;
+	}
+	
+
 }

@@ -47,10 +47,14 @@ switch ( $sections ) {
 							</div>
 						<?php endif; ?>
 						<div class="ast-small-footer-section  <?php echo esc_attr( $section_class ); ?>" >
-							<div class="footer__icons-links">
-								<!-- В данный блок необходимо установить соцсети -->
-								<!-- <div class="footer__icon-link"><a href="https://wa.me/+34660520536" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/whatsapp.png"></a></div> -->
-								<!-- <div class="footer__icon-link"> <a href="https://telegram.me/PBIgroup_bot" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/07/telegram.png"></a></div> -->
+							<div class="footer__icons-links-ft">
+								<div class="footer__icon-link-ft">
+								<a href="https://www.facebook.com/sakc.info.ru" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/08/fb.jpg"></a>
+								<a href="https://www.instagram.com/sakc.info.ru/" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/08/insta.jpg"></a>
+								<a href="https://www.youtube.com/channel/UCIu0tgCMgQsdS5uz5FfY81Q?view_as=subscriber" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/08/yt.jpg"></a>
+								<a href="https://ok.ru/group/63755040915507" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/08/ok.jpg"></a>
+								<a href="https://vk.com/public196911197" target="_blank"><img src="https://sakc.info/wp-content/uploads/2020/08/vk.jpg"></a>
+								</div>
 							</div>
 						</div>
 						
