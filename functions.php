@@ -323,12 +323,19 @@ function astra_child_archive_page_info() {
 		} else {
 			?>
 
-			<section class="ast-archive-description">
-				<?php do_action( 'astra_before_archive_title' ); ?>
-				<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
-				<?php do_action( 'astra_after_archive_title' ); ?>
-				<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
-				<?php do_action( 'astra_after_archive_description' ); ?>
+			<section class="ast-archive-description flex">
+				<div class="ast-archive-description-title">
+					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
+					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
+					<?php do_action( 'astra_after_archive_description' ); ?>
+				</div>
+				<div class="ast-archive-description-button">
+					<a href="https://www.property.dipi.estate/" target="_blank" role="button">
+							<span>Смотреть полный каталог</span>
+					</a>
+				</div>
 			</section>
 
 			<?php

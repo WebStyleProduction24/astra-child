@@ -8,6 +8,28 @@ Template:       astra
 Version:        0.1.0
 */
 
+.flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.ast-archive-description-button span{
+	text-transform: uppercase;
+	background-color: rgba(70,35,122,0.92);
+	padding: 10px 20px;
+	color: #fff;
+	border: 1px solid #46237a;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.ast-archive-description-button span:hover{
+	background-color: rgba(255,255,255);
+	color: #46237a;
+}
+
 .mb-4 {
 	margin-bottom: 2rem;
 }
@@ -28,7 +50,7 @@ Version:        0.1.0
 	padding-left: 2em;
 }
 .astra-child .ast-archive-description {
-	padding: 1em 6.67em;
+	padding: 1em 2.67em;
 }
 .astra-child article h2{
 	padding-right: 1.75em;
@@ -47,9 +69,9 @@ Version:        0.1.0
 .pum-theme-1489 .pum-title, .pum-theme-enterprise-blue .pum-title {
 	color: #fff!important;
 	font-size: 17px!important;
-    line-height: 40px!important;
-    background-color: #4054b2!important;
-    padding: 5px 185px 5px 20px!important;
+	line-height: 40px!important;
+	background-color: #4054b2!important;
+	padding: 5px 185px 5px 20px!important;
 	font-family: 'Work Sans',sans-serif!important;
 	
 }
@@ -73,18 +95,18 @@ Version:        0.1.0
 }
 .pum-theme-1489 .pum-content + .pum-close, .pum-theme-enterprise-blue .pum-content + .pum-close {
 	border: none!important;
-    font-weight: 900!important;
-    font-size: 40px!important;
-    line-height: 24px;
-    background-color: #4054b2!important;
+	font-weight: 900!important;
+	font-size: 40px!important;
+	line-height: 24px;
+	background-color: #4054b2!important;
 	font-family: fantasy!important;
 }
 /* Изменение footer 10.08.2020 */
 .footer__icons-links-ft {
 	display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    margin: 15px 5px;
+	justify-content: space-around;
+	flex-direction: row;
+	margin: 15px 5px;
 }
 .footer__icon-link-ft img {
 	max-width: 41px;
@@ -92,8 +114,8 @@ Version:        0.1.0
 /* Изменение footer 25.07.2020 */
 .footer__icons-links {
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 	height: 100%;
 }
 .footer__icon-link {
@@ -110,120 +132,129 @@ Version:        0.1.0
 }
 .header-main-layout-1 .main-navigation {
 	padding-left: 0px;
-    vertical-align: top;
+	vertical-align: top;
 }
 header .site-logo-img .custom-logo-link img {
-    max-width: 230px;
+	max-width: 230px;
 }
+
+@media screen and (max-width: 1199px) {
+	.ast-archive-description-button span{
+		padding: 5px 10px;
+		font-size: 65%;
+	}
+}
+
+
 /* Изменение услуги- покупка 05.08.2020 */
 @media (max-width: 1155px) {
-.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
-	padding: 5px 6px!important;
-    font-size: 10px!important;
+	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
+		padding: 5px 6px!important;
+		font-size: 10px!important;
 	}
-.ast-custom-html > button .main-navigation {
-	font-size: 16px!important;
+	.ast-custom-html > button .main-navigation {
+		font-size: 16px!important;
 	}
 }
 @media (max-width: 1220px) {
 	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
-	padding: 4px 5px!important;
-    font-size: 11px!important;
+		padding: 4px 5px!important;
+		font-size: 11px!important;
 	}
 }
 @media (max-width: 920px) {
 	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
-    padding: 2px 5px !important;
-    font-size: 12px!important;
+		padding: 2px 5px !important;
+		font-size: 12px!important;
 	}
 	.ast-button-wrap .menu-toggle .menu-toggle-icon:before {
-      font-size: 30px;
+		font-size: 30px;
 	}
 }
 @media (max-width: 1140px) {
 	.ast-logo-title-inline .site-logo-img {
-   		 padding-right: 0!important;
+		padding-right: 0!important;
 	}
 }
 @media (max-width: 1150px) {
 	.main-header-menu a {
-    padding: 0px 10px;
-    font-size: 14px;
+		padding: 0px 10px;
+		font-size: 14px;
 	}
 }
 
 
 @media (min-width: 769px) {
-.ast-footer-overlay {
-	padding-top: 0.1em!important;
-    padding-bottom: 0.1em!important;
+	.ast-footer-overlay {
+		padding-top: 0.1em!important;
+		padding-bottom: 0.1em!important;
 	}
 }
 /* Изменение header 06.08.2020 */
 @media (max-width: 920px) {
-.ast-button-wrap .menu-toggle {
-	align-items: center;
-    display: flex;
+	.ast-button-wrap .menu-toggle {
+		align-items: center;
+		display: flex;
 	}
 }
 /* Изменение header 22.07.2020 */
 @media (max-width: 1296px) {
-header .site-logo-img .custom-logo-link img {
-    max-width: 147px;
+	header .site-logo-img .custom-logo-link img {
+		max-width: 147px;
 	}
 	.main-header-menu a {
-    padding: 0 11px;
-	font-size: 14px;
+		padding: 0 11px;
+		font-size: 14px;
 	}
 	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
-	font-size: 11px;
+		font-size: 11px;
 	}
 	#masthead .ast-container, .ast-header-breadcrumb .ast-container {
-    padding: 0 8px;
+		padding: 0 8px;
 	}
 
 }
 @media (max-width: 965px) {
-header .site-logo-img .custom-logo-link img {
-    max-width: 103px!important;
+	header .site-logo-img .custom-logo-link img {
+		max-width: 103px!important;
 	}
 	.menu-toggle, button, .ast-button, .ast-custom-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"] {
-	font-size: 8px;
+		font-size: 8px;
 	}
 }
 
 @media (max-width: 1150px) {
-.header-main-layout-1 .ast-main-header-bar-alignment {
-    margin-left: 0!important;
+	.header-main-layout-1 .ast-main-header-bar-alignment {
+		margin-left: 0!important;
 	}
 }
 @media (max-width: 768px) {
 	.footer__icons-links {
-	display: flex;
-    align-items: center;
-    justify-content: left;
-    height: 100%;
-    left: 0;
-    position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		height: 100%;
+		left: 0;
+		position: relative;
 	}
 	.ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
-    display: flex;
-    flex: 0!important;
+		display: flex;
+		flex: 0!important;
 	}
 	.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container {
-	display: flex;	
-    justify-content: space-between;
+		display: flex;	
+		justify-content: space-between;
 	}
 	.ast-header-break-point .ast-mobile-menu-buttons {
-        margin-left: 18%!important;
+		margin-left: 18%!important;
 		flex: 1!important;
 	}
 	.ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img {
-    max-width: 125px;
+		max-width: 125px;
 	}
 	.ast-button-wrap .menu-toggle .menu-toggle-icon {
 		color: #46237a!important;
 	}
-	
+
 
 }
